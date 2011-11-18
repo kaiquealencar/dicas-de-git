@@ -1,0 +1,85 @@
+Git
+mudança de paradigma.
+1a semana dolorosa. vai odiar.
+depois a ficha cai e vc vai adorar!
+
+Git é um FileSystem distribuído.
+
+Com controles de versões centralizados vc não pode trabalhar off-line.
+
+
+o Git cria uma unica pasta .git e dentro tem todos os meta-dados, históricos e arquivos. Ele é auto-suficiente. Pra backup só pegar o .git ;)
+
+branches e tags apontam sempre para commits.
+commit é o elemento fundamental dentro do git.
+
+um commit contem toda estrutura do projeto.
+nao cria arquivos duplicados. cada arquivo de um commit referencia ao commit anterior.
+
+convenção: nunca trabalhe no branch master.
+
+dica: criar um branch para cada funcionalidade.
+
+
+
+
+
+Comandos:
+
+git init -> cria um repositório git (pasta .git)
+
+git help <comando> -> documentação, exemplo: git help init
+
+git status -> exibe a situação dos arquivos
+
+git add <file> -> adiciona um arquivo no repositório git. 
+Exemplo: 
+git add README 
+git add .
+
+git rm --chached <file> -> remove um arquivo do indice (stage area)
+Exemplo:
+git rm --chached config/database.yml
+
+git commit -m "mensagem" -> grava as modificações no repositório
+git commit -m "mensagem" --amend -> regrava as modificações no repositório
+
+git log -> mostra o log de commits
+
+git log --stat -> exibe todos os arquivos do log.
+
+git reset HEAD <file> -> remove um arquivo do indice
+git reset HEAD~1 --hard -> reset para trás. 1 commit para trás. arranca fora o commit inteiro.
+git reset HEAD~1 --soft -> reset para trás, porém coloca os arquivos do commit retirado na area de indice (stage area).
+
+git merge <SHA1> -> recupera o commit informado no SHA1
+
+git add -i -> modo interativo. Abre um prompt para escolhas. ;)
+
+git commit -a -> não usar o -a. Sempre add antes e depois usar o commit sem o -a
+
+git clean -f -> pegar arquivos que não estão no indice e jogar as alterações fora.
+
+git stash -> é uma area temporária. pode ser usada no seguinte cenário: alterei alguns arquivos e de repente surge algo "urgente" para fazer mas não quero que essas alteracoes entrem na correcao do bug. Então, crio um stash, jogo este arquivos no stash. Resolvo o bug, commito. Depois pego o q está no stash.
+
+git stash list -> list as areas de starh.
+
+git stash apply -> trazer de volta os arquivos que estão no stash.
+
+git stash clear -> limpar a área de stash.
+
+git stash save "nome do stash" -> salva uma area de stash com um nome.
+
+stash -> cuidado para não usar demais. É uma area temporária.
+
+git stash apply stash@{0} -> trás de volta o stash area {0}.
+
+git stash pop -> trás de volta a stash area e apaga o stash.
+
+git checkout -b desenvolvimento -> cria um novo branch chamado desenvolvimento e já deixa ele ativo (entra no branch).
+
+git checkout master -> entra para o branch master
+
+git log --graph -> lista os logs com um gráfico (traço)
+
+git branch -d bugfix -> apaga o branch chamado bugfix. não pode estar dentro do branch que será apagado.
